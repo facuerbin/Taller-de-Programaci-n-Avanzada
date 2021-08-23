@@ -1,10 +1,13 @@
 package entidades;
 
+import org.hibernate.envers.Audited;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "DetalleFactura")
+@Audited
 public class DetalleFactura implements Serializable {
 
     // Attributes

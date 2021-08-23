@@ -1,10 +1,13 @@
 package entidades;
 
+import org.hibernate.envers.Audited;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "Domicilio")
+@Audited
 public class Domicilio implements Serializable {
     // Attributes
     @Id

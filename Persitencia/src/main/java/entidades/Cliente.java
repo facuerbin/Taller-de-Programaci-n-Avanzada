@@ -1,5 +1,7 @@
 package entidades;
 
+import org.hibernate.envers.Audited;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +9,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Cliente")
+@Audited
 public class Cliente implements Serializable {
 
     // Attributes

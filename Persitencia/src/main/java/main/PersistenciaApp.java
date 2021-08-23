@@ -14,6 +14,7 @@ public class PersistenciaApp {
         try {
             entityManager.getTransaction().begin();
 
+            /*
             // Creo un cliente
             Cliente cliente = new Cliente("Facu", "Erbin", 12345678);
             Domicilio domicilio = new Domicilio("San Juan", 2400);
@@ -23,12 +24,11 @@ public class PersistenciaApp {
             entityManager.persist(cliente);
 
             // Busco al cliente
-            /*
-            Domicilio domicilio = entityManager.find(Domicilio.class, 1L);
-            Cliente cliente = entityManager.find(Cliente.class, 1L);
-            System.out.println(domicilio.getCliente().getDni());
-            System.out.println(cliente.getDomicilio().getNombreCalle());
-            */
+            // Domicilio domicilio = entityManager.find(Domicilio.class, 1L);
+            // Cliente cliente = entityManager.find(Cliente.class, 1L);
+            // System.out.println(domicilio.getCliente().getDni());
+            // System.out.println(cliente.getDomicilio().getNombreCalle());
+
 
             // Creo una Factura
             Factura factura = new Factura();
@@ -78,7 +78,13 @@ public class PersistenciaApp {
 
             entityManager.persist(factura);
 
+             */
 
+            Factura factura = entityManager.find(Factura.class, 1L);
+            // factura.setNumero(85);
+
+            // entityManager.merge(factura);
+            entityManager.remove(factura);
             entityManager.flush();
 
             entityManager.getTransaction().commit();
