@@ -26,6 +26,14 @@ public class Articulo implements Serializable {
     @OneToMany(mappedBy = "articulo")
     private List<DetalleFactura> detalleFacturas = new ArrayList<DetalleFactura>();
 
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "articulo_categoria",
+            joinColumns = @JoinColumn(name = "articulo_id"),
+            inverseJoinColumns = @JoinColumn(name = "categoria_id")
+    )
+    private List<Categoria> categorias = new ArrayList<Categoria>();
+
     // Constructor
     public Articulo() {
     }
@@ -41,6 +49,14 @@ public class Articulo implements Serializable {
         this.denominacion = denominacion;
         this.precio = precio;
         this.detalleFacturas = detalleFacturas;
+    }
+
+    public Articulo(int cantidad, String denominacion, int precio, List<DetalleFactura> detalleFacturas, List<Categoria> categorias) {
+        this.cantidad = cantidad;
+        this.denominacion = denominacion;
+        this.precio = precio;
+        this.detalleFacturas = detalleFacturas;
+        this.categorias = categorias;
     }
 
     // Getters && Setters
@@ -74,5 +90,21 @@ public class Articulo implements Serializable {
 
     public void setPrecio(int precio) {
         this.precio = precio;
+    }
+
+    public List<DetalleFactura> getDetalleFacturas() {
+        return detalleFacturas;
+    }
+
+    public void setDetalleFacturas(List<DetalleFactura> detalleFacturas) {
+        this.detalleFacturas = detalleFacturas;
+    }
+
+    public List<Categoria> getCategorias() {
+        return categorias;
+    }
+
+    public void setCategorias(List<Categoria> categorias) {
+        this.categorias = categorias;
     }
 }

@@ -91,4 +91,12 @@ public class Factura implements Serializable {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
+    public List<DetalleFactura> getDetalles() {
+        return detalles;
+    }
+
+    public void setDetalles(List<DetalleFactura> detalles) {
+        this.detalles = detalles;
+    }
 }
