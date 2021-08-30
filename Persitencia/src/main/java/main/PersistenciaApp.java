@@ -8,13 +8,24 @@ import javax.persistence.Persistence;
 
 public class PersistenciaApp {
     public static void main(String[] args) {
+        Factura factura = Factura.builder().numero(15).fecha("30/08/2021").build();
+        Factura factura2 = Factura.builder().total(200).fecha("31/08/2021").build();
+        System.out.println(factura.toString());
+        System.out.println(factura2.toString());
+
+        Articulo articulo = Articulo.builder()
+                .cantidad(25)
+                .denominacion("Shampoo Pantene")
+                .build();
+        System.out.println(articulo);
+        /*
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("PersistenciaAppPU");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         try {
             entityManager.getTransaction().begin();
 
-            /*
+
             // Creo un cliente
             Cliente cliente = new Cliente("Facu", "Erbin", 12345678);
             Domicilio domicilio = new Domicilio("San Juan", 2400);
@@ -78,7 +89,6 @@ public class PersistenciaApp {
 
             entityManager.persist(factura);
 
-             */
 
             Factura factura = entityManager.find(Factura.class, 1L);
             // factura.setNumero(85);
@@ -95,5 +105,7 @@ public class PersistenciaApp {
 
         entityManager.close();
         entityManagerFactory.close();
+
+         */
     }
 }
